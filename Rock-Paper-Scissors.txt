@@ -1,0 +1,106 @@
+Script started on Mon 03 Oct 2016 05:20:52 PM PDT
+[ktran89@hills ~]$ cat RPC.cpp
+// Khang Tran     RPC.cpp     Rock-Paper-Scissors       CS110A
+//This program will score the Rock-Paper-Scissors game.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int caseNumber;
+   char player1, player2;
+
+   cout << "\nPlayer One, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  ";
+   cin >> player1;
+   cout << "\nPlayer two, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  ";
+   cin >> player2;
+   
+   if ( player1 != 'P' && player1 != 'R' && player1 != 'S' || player2 != 'P' && player2 != 'R' && player2 != 'S' )
+   // If the input of player 1 OR player 2 doesn't match ANY of the above characters, return invalid notice
+   
+   {
+   cout << "\nYou have entered an invalid input!" << endl << endl;
+   return 0;
+   }
+   
+   if ( player1 == 'P' ) caseNumber = 0;
+   if ( player1 == 'R' ) caseNumber = 1;
+   if ( player1 == 'S' ) caseNumber = 2;
+   
+   switch(caseNumber)
+   {
+      case 0:
+      if ( player2 == 'P' )
+      {cout << "\nTie with Paper";
+      break;}
+      if ( player2 == 'R' )
+      {cout << "\nPlayer 1 wins: Paper covers Rock!";
+      break;}
+      if (player2 == 'S' )
+      {cout << "\nPlayer 2 wins: Scissors cut Paper!";
+      break;}
+      case 1:
+      if ( player2 == 'P' )
+      {cout << "\nPlayer 2 wins: Paper covers Rock!";
+      break;}
+      if ( player2 == 'R' )
+      {cout << "\nTie with Rock";
+      break;}
+      if ( player2 == 'S' )
+      {cout << "\nPlayer 1 wins: Rock breaks Scissors!";
+      break;}
+      case 2:
+      if ( player2 == 'P' )
+      {cout << "\nPlayer 1 wins: Scissors cut Paper!";
+      break;}
+      if ( player2 == 'R' )
+      {cout << "\nPlayer 2 wins: Rock breaks Scissors!";
+      break;}
+      if ( player2 == 'S' )
+      {cout << "\nTie with Scissors";
+      break;}
+      }
+   cout << endl << endl;
+   return 0;
+}
+
+
+
+
+[ktran89@hills ~]$ a.out
+
+Player One, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  P
+
+Player two, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  R
+
+Player 1 wins: Paper covers Rock!
+
+[ktran89@hills ~]$ a.out
+
+Player One, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  S
+
+Player two, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  S
+
+Tie with Scissors
+
+[ktran89@hills ~]$ a.out
+
+Player One, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  R
+
+Player two, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  K
+
+You have entered an invalid input!
+
+[ktran89@hills ~]$ a.out
+
+Player One, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  K
+
+Player two, please enter your move: ('P' for Paper, 'R' for Rock, 'S' for Scissor)  W
+
+You have entered an invalid input!
+
+[ktran89@hills ~]$ exit
+exit
+
+Script done on Mon 03 Oct 2016 05:22:22 PM PDT

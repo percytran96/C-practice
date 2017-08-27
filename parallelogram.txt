@@ -1,0 +1,86 @@
+Script started on Thu 27 Oct 2016 05:54:02 PM PDT
+[ktran89@hills ~]$ cat Lab4.cpp
+//Khang Tran    CS110A Programming Lab 4       Lab4.cpp       
+//This program outputs a parallelogram from a character of user choice
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int i,row,col,length;
+   char symbol;
+
+   cout << "\nHow long do you want each side to be: ";
+   cin >> length;
+
+   
+   cout << "\nEnter the character you want it to made of: ";
+   cin >> symbol;
+   
+   for (row=1; row <= length; row++)    // first half of the parallelogram
+   {
+       for(col=1; col <= row; col++)
+       { cout << symbol;}
+       cout << endl;
+   }
+
+   for ( row = length -1; row >=1; row--) // second half of the parallelogram
+   {
+       for (i=1;i <= length - row; i++)
+       {cout << " ";}
+       for (col=1; col <= row; col++)
+       { cout << symbol; }
+       cout << endl;
+   }
+}           
+          
+           
+[ktran89@hills ~]$ clear     a.out
+
+How long do you want each side to be: 6
+
+Enter the character you want it to made of: @ #
+#
+##
+###
+####
+#####
+######
+  #####
+    ####
+      ###
+        ##
+          #
+[ktran89@hills ~]$ a.out
+
+How long do you want each side to be: 12
+
+Enter the character you want it to made of: K W $
+$
+$$
+$$$
+$$$$
+$$$$$
+$$$$$$
+$$$$$$$
+$$$$$$$$
+$$$$$$$$$
+$$$$$$$$$$
+$$$$$$$$$$$
+$$$$$$$$$$$$
+  $$$$$$$$$$$
+    $$$$$$$$$$
+      $$$$$$$$$
+        $$$$$$$$
+          $$$$$$$
+            $$$$$$
+              $$$$$
+                $$$$
+                  $$$
+                    $$
+                      $
+[ktran89@hills ~]$ exit
+exit
+
+Script done on Thu 27 Oct 2016 05:55:12 PM PDT

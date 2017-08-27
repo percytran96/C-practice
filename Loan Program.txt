@@ -1,0 +1,112 @@
+Script started on Sat 12 Nov 2016 12:29:43 PM PST
+[ktran89@hills ~]$ cat Lab5.cpp
+//Khang Tran   CS110A    Lab5.cpp    Consumer Loan Program
+//This program calculate how long it will take to pay off loan
+
+#include <iostream>
+using namespace std;
+
+   
+   void getInput(double& principal,double& interestRate,double& monthlyPayment);
+   void payLoan(double principal,double interestRate,double monthlyPayment,int& months,double& totalInterest,double& finalPayment);
+   void displayResult(int& months,double& totalInterest,double& finalPayment);
+
+int main()
+{   
+   double principal=0.0, interestRate=0.0, monthlyPayment=0.0;
+   int months=0; 
+   double totalInterest=0.0, finalPayment=0.0; 
+   getInput(principal,interestRate,monthlyPayment);
+   payLoan(principal,interestRate,monthlyPayment,months,totalInterest,finalPayment);
+   displayResult(months,totalInterest,finalPayment);
+   return 0;
+}
+
+void getInput(double& principal,double& interestRate,double& monthlyPayment)
+{
+  
+   cout << "\nHow much do you want to borrow? ";
+   cin >> principal;
+   if (principal <= 0){
+    do
+   {
+   cout << "\nYour input mus be a positive number! Please enter again: ";
+   cin >> principal;
+   } while (principal <= 0);}
+
+   cout << "\nWhat is the annual interest rate expressed as percent? ";
+   cin >> interestRate;
+   if (interestRate <= 0){
+   do
+   {
+   cout << "\nYour input mus be a positive number! Please enter again: ";
+   cin >> interestRate;
+   } while (interestRate <= 0);}
+
+   cout << "\nWhat is the monthly payment amount? ";
+   cin >> monthlyPayment;
+   if (monthlyPayment <= 0){
+   do
+   {
+   cout << "\nYour input mus be a positive number! Please enter again: ";
+   cin >> monthlyPayment;
+   } while (monthlyPayment <= 0);}
+}
+
+void payLoan(double principal,double interestRate,double monthlyPayment,int& months,double& totalInterest,double& finalPayment)
+{
+   double balance,monthlyInterest;
+   balance = principal;
+   for( months=0 ; balance>0 ; months++)
+   {
+     balance += balance*((interestRate/100)/12);
+     balance -= monthlyPayment;
+     monthlyInterest = balance*((interestRate/100)/12);
+     totalInterest += monthlyInterest;  
+     if (balance < monthlyPayment)
+     finalPayment = balance;
+   }
+  
+}
+
+void displayResult(int& months,double& totalInterest,double& finalPayment)  
+{
+cout << "\nYour debt will be paid off after " << months << " months with a final payment of just " << finalPayment;
+cout << "\nThe total amount of interest you will pay is " << totalInterest << endl;
+}
+[ktran89@hills ~]$ a.out
+
+How much do you want to borrow? 1000
+
+What is the annual interest rate expressed as percent? 18
+
+What is the monthly payment amount? 50
+
+Your debt will be paid off after 24 months with a final payment of just -2.17323
+The total amount of interest you will pay is 182.794
+[ktran89@hills ~]$ a.out
+
+How much do you want to borrow? 15000
+
+What is the annual interest rate expressed as percent? 10
+
+What is the monthly payment amount? 100
+^C
+[ktran89@hills ~]$ a.out
+
+How much do you want to borrow? -50
+
+Your input mus be a positive number! Please enter again: 60
+
+What is the annual interest rate expressed as percent? 500
+
+What is the monthly payment amount? -5
+
+Your input mus be a positive number! Please enter again: 440
+
+Your debt will be paid off after 1 months with a final payment of just -355
+The total amount of interest you will pay is -147.917
+[ktran89@hills ~]$ exit
+exit
+//I tried my best but there are logic errors I couldn't figure out.Sorry!
+Script done on Sat 12 Nov 2016 12:33:01 PM PST

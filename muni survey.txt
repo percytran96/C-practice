@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   char  muniname[20];
+   int days;
+   int numPeople;
+   double averagerider;
+
+   cout << "\nWhich muni did you survey? ";
+   cin >> muniname;
+   cout << "\nHow many days did you survey it? ";
+   cin >> days;
+   cout << "\nHow many people riders did you count? ";
+   cin >> numPeople;
+
+   averagerider = static_cast<double>(numPeople)/days;
+
+   cout << "\nAccording to your survey, an average of " << averagerider << " people rode the " << muniname << " muni per day " << endl << endl;
+   return 0;
+}

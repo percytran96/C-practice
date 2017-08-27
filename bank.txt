@@ -1,0 +1,97 @@
+Script started on Wed 28 Sep 2016 12:53:37 PM PDT
+[ktran89@hills ~]$ cat bank.cpp
+//Khang Tran     bank.cpp     Bank Charges CS110A    
+//This program calculates the monthly bank charges 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+   double balance;
+   double charge;
+   int checks;
+   
+   cout << "\nEnter the following information about your checking account:" << endl << endl;
+   cout << "Beginning balance: ";
+   cin >> balance;
+   cout << "\nNumber of checks written: ";;
+   cin >> checks;
+   
+   if ( ( balance < 0 ) && ( checks < 0 ) )
+   {
+   cout << "\nYour account is overdrawn!";
+   cout << "\nNumber of checks must be zero or more" << endl << endl;
+   return 0;
+   }
+   
+   else if ( checks < 0 )
+   {   
+   cout << "\nNumber of checks must be zero or more" << endl << endl;
+   return 0;
+   }
+   
+   else if ( balance < 0 ) 
+   {
+   cout << "\nYour account is overdrawn!" << endl << endl;
+   return 0;
+   }
+   
+   charge = 10;
+   
+   if ( balance < 400 )
+   charge = charge + 15;
+   
+   if ( checks < 20 )
+   charge = charge + 0.10*checks;
+   
+   else if ( ( checks >= 20 ) && ( checks <= 39 ) )
+   charge = charge + 0.08*checks;
+   
+   else if ( checks >= 60 )
+   charge = charge + 0.04*checks;
+   
+   else 
+   charge = charge +0.06*checks;
+   
+   cout << "\nThe bank fee this month is: $" << setprecision(2) << fixed << charge << endl << endl;
+   return 0;
+}  
+
+  
+[ktran89@hills ~]$ a.out
+
+Enter the following information about your checking account:
+
+Beginning balance: -5
+
+Number of checks written: -10
+
+Your account is overdrawn!
+Number of checks must be zero or more
+
+[ktran89@hills ~]$ a.out
+
+Enter the following information about your checking account:
+
+Beginning balance: 150
+
+Number of checks written: 33
+
+The bank fee this month is: $27.64
+
+[ktran89@hills ~]$ a.out
+
+Enter the following information about your checking account:
+
+Beginning balance: 2500
+
+Number of checks written: 120
+
+The bank fee this month is: $14.80
+
+[ktran89@hills ~]$ exit
+exit
+
+Script done on Wed 28 Sep 2016 12:55:04 PM PDT

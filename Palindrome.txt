@@ -1,0 +1,55 @@
+Script started on Mon 21 Nov 2016 03:42:59 PM PST
+[ktran89@hills ~]$ cat Lab6.cpp
+//Khang Tran   Lab6.cpp    Palindrome Program
+//This program examine a user-entered string to determine if it's a palindrome
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+   char str[50];
+   cout << "\nPlease enter your word: ";
+   cin.getline(str,50);
+   int len = strlen(str);
+   bool check = true;
+   int i;
+   for(i=0;i!=len/2;i++)
+   {
+   if (check)
+   {
+   if (str[i] != str[len-i-1])
+   {check = false;}
+   }
+   else
+   {break;}
+   }  
+        
+
+  if (check == true)
+  cout << "It's a palindrome" << endl;
+  else
+  cout << "It is not a palindrome" << endl;
+  cout << endl;
+  return 0;
+}
+[ktran89@hills ~]$ a.out
+
+Please enter your word: radar
+It's a palindrome
+
+[ktran89@hills ~]$ a.out
+
+Please enter your word: abccba
+It's a palindrome
+
+[ktran89@hills ~]$ a.out
+
+Please enter your word: abcdecba
+It is not a palindrome
+
+[ktran89@hills ~]$ exit
+exit
+
+Script done on Mon 21 Nov 2016 03:44:42 PM PST
